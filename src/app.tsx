@@ -144,9 +144,9 @@ export function App() {
               </div>
 
               <ul className='flex flex-wrap gap-2'>
-                { guestsListEmails.map((email, index) => (
+                { guestsListEmails.map(email => (
                   <li
-                    key={index} 
+                    key={email} 
                     className='flex gap-2.5 bg-zinc-800 text-zinc-300 rounded-md py-1 px-1.5'>
                   {email}
                   <button

@@ -10,6 +10,9 @@ export function App() {
 
   const [ emailsToInviteModal, setEmailsToInviteModal ] = useState(false)
 
+  const [ guestEmail, setGuestEmail ] = useState('')
+  const [ guestsListEmails, setGuestsListEmails ] = useState<string[]>([])
+
   const [ confirmTripModal, setConfirmTripModal ] = useState(false)
 
   function toggleGuestsInput() {
@@ -18,6 +21,17 @@ export function App() {
 
   function modalEmailsToInvite() {
     setEmailsToInviteModal((prev) => !prev)
+  }
+
+  function HandleGuestsEmailsList() {
+    if(guestEmail.trim() && !guestsListEmails.includes(guestEmail)) {
+      setGuestsListEmails([...guestsListEmails, guestEmail])
+      setGuestEmail('')
+    }
+  }
+
+  function hadleRemoveGuestEmail(emailToRemove: string) {
+    setGuestsListEmails(guestsListEmails.filter(email => email !== emailToRemove))
   }
 
   function modalConfirmTrip() {
@@ -124,21 +138,19 @@ export function App() {
               </div>
 
               <ul className='flex flex-wrap gap-2'>
-                <li className='flex gap-2.5 bg-zinc-800 text-zinc-300 rounded-md py-1 px-1.5'>
-                  kiq@outlook.com <X/>
+                { guestsListEmails.map((email, index) => (
+                  <li
+                    key={index} 
+                    className='flex gap-2.5 bg-zinc-800 text-zinc-300 rounded-md py-1 px-1.5'>
+                  {email}
+                  <button
+                    type='button'
+                    onClick={() => hadleRemoveGuestEmail(email)}
+                  >
+                    <X/>
+                  </button>
                 </li>
-                <li className='flex gap-2.5 bg-zinc-800 text-zinc-300 rounded-md py-1 px-1.5'>
-                  kiq@outlook.com <X/>
-                </li>
-                <li className='flex gap-2.5 bg-zinc-800 text-zinc-300 rounded-md py-1 px-1.5'>
-                  kiq@outlook.com <X/>
-                </li>
-                <li className='flex gap-2.5 bg-zinc-800 text-zinc-300 rounded-md py-1 px-1.5'>
-                  kiq@outlook.com <X/>
-                </li>
-                <li className='flex gap-2.5 bg-zinc-800 text-zinc-300 rounded-md py-1 px-1.5'>
-                  kiq@outlook.com <X/>
-                </li>
+                ))}
               </ul>
 
               <div className='w-full h-1 bg-zinc-800'/>
@@ -148,7 +160,9 @@ export function App() {
                 <div className='flex-1 flex items-center gap-2'>
                   <AtSign className='size-5 text-zinc-400'/>
                   <input 
-                    type="mail" 
+                    type="mail"
+                    value={guestEmail}
+                    onChange={(e) => setGuestEmail(e.target.value)}
                     placeholder='Digite o e-mail do convidado'
                     className=' text-zinc-300 flex-1 placeholder:text-zinc-400' 
                   />
@@ -156,6 +170,7 @@ export function App() {
 
                 <button
                   type='button'
+                  onClick={HandleGuestsEmailsList}
                   className='flex items-center gap-2 rounded-xl bg-lime-300 text-lime-950 px-5 py-2 hover:bg-lime-400'
                 >
                   Convidar

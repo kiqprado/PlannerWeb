@@ -2,20 +2,26 @@ import { useState } from 'react'
 
 import './index.css'
 
-import { MapPin, Calendar, ArrowRight, UserRoundPlus, X, Settings2, AtSign, Plus } from 'lucide-react'
+import { MapPin, Calendar, ArrowRight, UserRoundPlus, User, Mail, X, Settings2, AtSign, Plus } from 'lucide-react'
 
 import Logo from '/Logo.svg'
 export function App() {
   const [ guestInput, setGuestInput ] = useState(false)
 
-  const [ emailsToInvite, setEmailsToInvite ] = useState(false)
+  const [ emailsToInviteModal, setEmailsToInviteModal ] = useState(false)
+
+  const [ confirmTripModal, setConfirmTripModal ] = useState(false)
 
   function toggleGuestsInput() {
     setGuestInput((prev) => !prev)
   }
 
   function modalEmailsToInvite() {
-    setEmailsToInvite((prev) => !prev)
+    setEmailsToInviteModal((prev) => !prev)
+  }
+
+  function modalConfirmTrip() {
+    setConfirmTripModal((prev) => !prev)
   }
 
   return (
@@ -88,7 +94,7 @@ export function App() {
 
             <button 
               type='button'
-              onClick={toggleGuestsInput}
+              onClick={modalConfirmTrip}
               className='flex items-center gap-2 rounded-xl bg-lime-300 px-5 py-2 hover:bg-lime-400'
             >
               Confirmar viagem <ArrowRight/>
@@ -98,7 +104,7 @@ export function App() {
         )}
         </div>
 
-        { emailsToInvite && (
+        { emailsToInviteModal && (
           <div className='fixed inset-0 flex items-center justify-center bg-black/60'>
 
             <div className=' w-[640px] px-5 py-6 space-y-6 bg-zinc-900 rounded-xl'>
@@ -159,6 +165,46 @@ export function App() {
               </div>
             </div>
 
+          </div>
+        )}
+
+        { confirmTripModal && (
+          <div className='fixed inset-0 flex items-center justify-center bg-black/60'>
+
+            <div className=' w-[640px] px-5 py-6 space-y-2 bg-zinc-900 rounded-xl'>
+              <div className='flex justify-between text-zinc-50'>
+                <h2 className='text-lg'>Confirmar criação da viagem</h2>
+                <button
+                  type='button'
+                  onClick={modalConfirmTrip}
+                >
+                  <X/>
+                </button>
+              </div>
+
+              <p className='text-zinc-400 mb-5'>Para concluir a criação da viagem para <strong className='text-zinc-100'>Florianópolis, Brasil</strong> nas datas de <strong className='text-zinc-100'>16 a 27 de Agosto de 2024</strong> preencha seus dados abaixo:</p>
+
+              <div className='space-y-2'>
+                <input 
+                  type="text"
+                  icon={<User/>}
+                  placeholder='Seu nome completo'
+                  className=' w-full bg-zinc-950 text-zinc-300 placeholder:text-zinc-400 rounded-xl py-2.5 px-4'
+                />
+                <input 
+                  type="text"
+                  icon={<User/>}
+                  placeholder='Seu e-mail pessoal'
+                  className=' w-full  bg-zinc-950 text-zinc-300 placeholder:text-zinc-400 rounded-xl py-2.5 px-4' 
+                />
+                <button
+                  type='button'
+                  className=' w-full bg-lime-300 hover:bg-lime-400 text-center rounded-xl py-2.5'
+                >
+                  Confirmar criação da viagem
+                </button>
+              </div>
+            </div>
           </div>
         )}
 

@@ -10,8 +10,8 @@ export function App() {
 
   const [ emailsToInviteModal, setEmailsToInviteModal ] = useState(false)
 
-  const [ guestEmail, setGuestEmail ] = useState('')
-  const [ guestsListEmails, setGuestsListEmails ] = useState<string[]>([])
+  const [ emailToInvite, setEmailToInvite ] = useState('')
+  const [ emailsToInvites, setEmailsToInvites ] = useState<string[]>([])
 
   const [ confirmTripModal, setConfirmTripModal ] = useState(false)
 
@@ -26,14 +26,14 @@ export function App() {
   }
 
   function HandleGuestsEmailsList() {
-    if(guestEmail.trim() && !guestsListEmails.includes(guestEmail)) {
-      setGuestsListEmails([...guestsListEmails, guestEmail])
-      setGuestEmail('')
+    if(emailToInvite.trim() && !emailsToInvites.includes(emailToInvite)) {
+      setEmailsToInvites([...emailsToInvites, emailToInvite])
+      setEmailToInvite('')
     }
   }
 
   function handleRemoveGuestEmail(emailToRemove: string) {
-    setGuestsListEmails(guestsListEmails.filter(email => email !== emailToRemove))
+    setEmailsToInvites(emailsToInvites.filter(email => email !== emailToRemove))
   }
 
   function modalConfirmTrip() {
@@ -106,10 +106,18 @@ export function App() {
             <button 
               type='button'
               onClick={modalEmailsToInvite}
-              className='flex items-center gap-2 flex-1  text-zinc-400 '
+              className='flex items-center gap-2 flex-1'
             >
               <UserRoundPlus className='size-5 text-zinc-400'/>
-              Quem estará na viagem?
+              { emailsToInvites.length > 0 ? (
+                emailsToInvites.length === 1 ? (
+                  <span className='text-zinc-100'> 1 pessoa convidada.</span>
+                ) : (
+                  <span className='text-zinc-100'>{emailsToInvites.length} pessoas convidadas.</span>
+                )
+              ) : (
+                <span className='text-zinc-400'> Quem estará na viagem? </span>
+              )}
             </button>
 
             <button 
@@ -144,7 +152,7 @@ export function App() {
               </div>
 
               <ul className='flex flex-wrap gap-2'>
-                { guestsListEmails.map(email => (
+                { emailsToInvites.map(email => (
                   <li
                     key={email} 
                     className='flex gap-2.5 bg-zinc-800 text-zinc-300 rounded-md py-1 px-1.5'>
@@ -167,8 +175,8 @@ export function App() {
                   <AtSign className='size-5 text-zinc-400'/>
                   <input 
                     type="mail"
-                    value={guestEmail}
-                    onChange={(e) => setGuestEmail(e.target.value)}
+                    value={emailToInvite}
+                    onChange={(e) => setEmailToInvite(e.target.value)}
                     placeholder='Digite o e-mail do convidado'
                     className=' text-zinc-300 flex-1 placeholder:text-zinc-400 outline-none' 
                   />

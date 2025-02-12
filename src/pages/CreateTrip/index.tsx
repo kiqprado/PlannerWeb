@@ -139,7 +139,7 @@ export function CreateTripPage() {
 
               <div>
                 <div className='flex justify-between text-zinc-50'>
-                  <h2 className='text-lg'>Selecionar convidados</h2>
+                  <h3 className='text-lg'>Selecionar convidados</h3>
                   <button
                     type='button'
                     onClick={modalEmailsToInvite}
@@ -202,7 +202,7 @@ export function CreateTripPage() {
 
             <div className=' w-[640px] px-5 py-6 space-y-2 bg-zinc-900 rounded-xl'>
               <div className='flex justify-between text-zinc-50'>
-                <h2 className='text-lg'>Confirmar criação da viagem</h2>
+                <h3 className='text-lg'>Confirmar criação da viagem</h3>
                 <button
                   type='button'
                   onClick={modalConfirmTrip}
@@ -243,7 +243,7 @@ export function CreateTripPage() {
 
           <div className=' w-[640px] px-5 py-6 space-y-2 bg-zinc-900 rounded-xl'>
             <div className='flex justify-between text-zinc-50'>
-              <h2 className='text-lg'>Confirmar participação</h2>
+              <h3 className='text-lg'>Confirmar participação</h3>
               <button
                 type='button'
                 onClick={modalConfirmGuest}

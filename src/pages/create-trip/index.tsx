@@ -6,6 +6,8 @@ import { InviteGuestsModal } from './invite-guests-modal'
 import { ConfirmTripModal } from './confirm-trip-modal'
 import { ConfirmGuestModal } from './confirm-guest-modal'
 
+import { Footer } from './components/footer'
+
 import '../../index.css'
 
 import { MapPin, Calendar, ArrowRight, UserRoundPlus, User, Mail, X, Settings2 } from 'lucide-react'
@@ -183,8 +185,7 @@ export function CreateTripPage() {
           />
         )}
 
-        <p className='text-zinc-500 text-center text-sm'>Ao planejar sua viagem pela plann.er você automaticamente concorda <br/>
-        com <a href='#' className='text-zinc-300'>nossos termos</a> de uso e <a href="#" className='text-zinc-300'>políticas de privacidade</a>.</p>
+        <Footer/>
       </div>
     </div>
   )

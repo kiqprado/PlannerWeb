@@ -26,6 +26,7 @@ export function InviteGuestsModal({
             <button
               type='button'
               onClick={ToggleModalEmailsToInvite}
+              className='cursor-pointer'
             >
               <X/>
             </button>
@@ -45,6 +46,7 @@ export function InviteGuestsModal({
                 <button
                   type='button'
                   onClick={() => HandleRemoveEmailFromInvites(email)}
+                  className='cursor-pointer'
                 >
                   <X/>
                 </button>
@@ -71,7 +73,7 @@ export function InviteGuestsModal({
 
             <button
               type='submit'
-              className='flex items-center gap-2 rounded-xl bg-lime-300 text-lime-950 font-medium px-5 py-2 hover:bg-lime-400'
+              className='flex items-center gap-2 rounded-xl bg-lime-300 text-lime-950 font-medium px-5 py-2 hover:bg-lime-400 cursor-pointer'
             >
               Convidar
               <Plus className='size-5'/>

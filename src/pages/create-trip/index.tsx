@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import '../../index.css'
 
@@ -6,6 +7,8 @@ import { MapPin, Calendar, ArrowRight, UserRoundPlus, User, Mail, X, Settings2, 
 
 import Logo from '/Logo.svg'
 export function CreateTripPage() {
+  const navigate = useNavigate()
+
   const [ guestInput, setGuestInput ] = useState(false)
 
   const [ emailsToInviteModal, setEmailsToInviteModal ] = useState(false)
@@ -42,6 +45,10 @@ export function CreateTripPage() {
 
   function modalConfirmGuest() {
     setConfirmGuestModal((prev) => !prev)
+  }
+
+  function CreateTrip() {
+    navigate('/trips/4334')
   }
 
   return (
@@ -228,7 +235,7 @@ export function CreateTripPage() {
                 />
                 <button
                   type='button'
-                  onClick={modalConfirmGuest}
+                  onClick={CreateTrip}
                   className=' w-full bg-lime-300 hover:bg-lime-400 text-center font-medium rounded-xl py-2.5'
                 >
                   Confirmar criação da viagem

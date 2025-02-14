@@ -1,6 +1,27 @@
-import { MapPin, Calendar, Settings2, Plus, CircleCheck, Link2, CircleDashed, UserCog } from "lucide-react"
+import { useState } from "react"
+import { useNavigate } from 'react-router-dom'
+
+import { MapPin, Calendar, Settings2, Plus, CircleCheck, Link2, CircleDashed, UserCog, X, Tag, Clock } from "lucide-react"
 
 export function TripDetailsPage() {
+  const navigate = useNavigate()
+
+  const [ registerActivityModal, setRegisterActivityModal ] = useState(false)
+
+  const [ addNewLinkModal, setAddNewLinkModal ] = useState(false)
+
+  function ToggleRegisterActivityModal() {
+    setRegisterActivityModal((prev) => !prev)
+  }
+
+  function ToggleAddNewLinkModal() {
+    setAddNewLinkModal((prev) => !prev)
+  }
+
+  function ChangeTripDetails() {
+    navigate("/")
+  }
+
   return(
     <div className=' w-min[1060px] h-screen px-24'>
       <div className='w-full flex flex-col gap-8'>
@@ -28,6 +49,7 @@ export function TripDetailsPage() {
 
           <button
             type='button'
+            onClick={ChangeTripDetails}
             className='flex items-center gap-2 rounded-xl bg-zinc-800 text-zinc-200 font-medium px-5 py-2 hover:bg-zinc-700'
           >
             Alterar local/data
@@ -44,12 +66,66 @@ export function TripDetailsPage() {
             </h2>
             <button
               type="button"
+              onClick={ToggleRegisterActivityModal}
               className=' flex items-center gap-2 px-5 py-2 font-medium text-lime-950 bg-lime-300 hover:bg-lime-400 rounded-lg'
             >
               <Plus/>
               Cadastrar atividade
             </button>
           </div>
+          {  registerActivityModal && (
+            <div className='fixed h-screen inset-0 flex items-center justify-center bg-black/60'>
+              <div className='w-[492px] bg-zinc-900 rounded-xl px-5 py-6'>
+                <div className='flex justify-between text-zinc-50'>
+                  <h3 className='text-lg'>Cadastrar atividade</h3>
+                  <button
+                    type='button'
+                    onClick={ToggleRegisterActivityModal}
+                  >
+                    <X/>
+                  </button>
+                </div>
+
+                <p className='text-zinc-400 text-sm mb-5'>Todos convidados podem visualizar as atividades.</p>
+
+                <form action="" className="space-y-2">
+                <div className='flex gap-2 items-center bg-zinc-950 px-4 py-2 rounded-lg'>
+                  <Tag className='size-5 text-zinc-400'/>
+                  <input 
+                    type="text" 
+                    placeholder="Qual a atividade?"
+                    className='text-zinc-300 outline-none w-full placeholder:text-zinc-400' 
+                  />
+                </div>
+
+                <div className="flex gap-2">
+                  <div className='flex gap-2 items-center bg-zinc-950 px-4 py-2 rounded-lg flex-1'>
+                    <Calendar className='size-5 text-zinc-400'/>
+                    <input 
+                      type="date"
+                      className='text-zinc-300 outline-none w-full placeholder:text-zinc-400 [appearance:textfield] [&::-webkit-calendar-picker-indicator]:hidden'
+                    />
+                  </div>
+                  <div className='flex gap-2 items-center bg-zinc-950 px-4 py-2 rounded-lg'>
+                    <Clock className='size-5 text-zinc-400'/>
+                    <input 
+                      type="time" 
+                      className='text-zinc-300 outline-none w-full placeholder:text-zinc-400  [appearance:textfield] [&::-webkit-calendar-picker-indicator]:hidden'
+                    />
+                  </div>
+                </div>
+
+                <button
+                type="button"
+                className="w-full px-4 py-2 font-medium rounded-lg bg-lime-300 hover:bg-lime-400 text-lime-950"
+                >
+                  Salvar atividade
+                </button>
+              </form>
+              </div>
+
+            </div>
+          )}
         </div>
 
         <div className="space-y-6">
@@ -162,12 +238,57 @@ export function TripDetailsPage() {
 
               <button
                 type='button'
+                onClick={ToggleAddNewLinkModal}
                 className='flex justify-center items-center gap-2 text-zinc-200 bg-zinc-900 hover:bg-zinc-800 rounded-lg px-5 py-2'
               >
                 <Plus/>
                 Cadastrar novo link
               </button>
             </div>
+
+            { addNewLinkModal && (
+              <div className="fixed h-screen inset-0 flex items-center justify-center bg-black/60">
+                <div className='w-[492px] bg-zinc-900 rounded-xl px-5 py-6'>
+                  <div className='flex justify-between text-zinc-50'>
+                    <h3 className='text-lg'>Cadastrar link</h3>
+                    <button
+                      type='button'
+                      onClick={ToggleAddNewLinkModal}
+                    >
+                      <X/>
+                    </button>
+                  </div>
+
+                  <p className='text-zinc-400 text-sm mb-5'>Todos convidados podem visualizar os links importantes.</p>
+
+                  <form action="" className="space-y-2">
+                    <div className="flex gap-2 items-center bg-zinc-950 px-4 py-2 rounded-lg">
+                      <Tag className="size-5 text-zinc-300"/>
+                      <input 
+                        type="text"
+                        placeholder="Título do link"
+                        className="text-zinc-300 placeholder:text-zinc-400"
+                      />
+                    </div>
+                    <div className="flex gap-2 items-center bg-zinc-950 px-4 py-2 rounded-lg">
+                      <Link2 className="size-5 text-zinc-300"/>
+                      <input 
+                        type="url"
+                        placeholder="URL"
+                        className="text-zinc-300 placeholder:text-zinc-400"
+                      />
+                    </div>
+
+                    <button
+                      type="button"
+                      className="w-full px-4 py-2 font-medium rounded-lg bg-lime-300 hover:bg-lime-400 text-lime-950"
+                    >
+                      Salvar link
+                    </button>
+                  </form>
+                </div>
+              </div>
+            )}
 
             <div className='w-full h-0.5 bg-zinc-800'/>
 

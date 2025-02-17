@@ -4,7 +4,6 @@ interface CreateActivityProps {
   ToggleRegisterActivityModal: () => void
 }
 
-
 export function CreateActivity({ToggleRegisterActivityModal} : CreateActivityProps) {
   return (
     <div className='flex items-center justify-between '>

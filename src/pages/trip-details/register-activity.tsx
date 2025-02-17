@@ -5,7 +5,6 @@ import { X, Tag, Calendar, Clock } from 'lucide-react'
 interface RegisterActivityModalProps {
   ToggleRegisterActivityModal: () => void
   HandleAddNewActivity: (e: FormEvent<HTMLFormElement>) => void
-
 }
 
 export function RegisterActivityModal({ 

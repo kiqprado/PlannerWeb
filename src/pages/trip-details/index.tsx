@@ -105,8 +105,8 @@ export function TripDetailsPage() {
           ChangeTripDetails={ChangeTripDetails}  
         />
 
-        <div className='flex justify-between px-6'>
-          <div className='max-w-2xl w-full flex flex-col gap-8'>
+        <div className='flex justify-between gap-16 px-6'>
+          <div className='flex flex-1 flex-col gap-8'>
               <CreateActivity
                 ToggleRegisterActivityModal={ToggleRegisterActivityModal}
               />
@@ -123,7 +123,7 @@ export function TripDetailsPage() {
               />
           </div>
 
-          <div className='max-w-92 w-full space-y-6'>
+          <div className='max-w-88 w-full space-y-6'>
 
             { addNewLinkModal && (
               <AddNewLinkModal

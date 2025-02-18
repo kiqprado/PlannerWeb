@@ -23,20 +23,20 @@ export function LinksImportant({
           return (
             <div
               key={link.title}
-              className='flex items-center justify-between'
+              className='flex items-center justify-between gap-6'
             >
               <div className='flex flex-col gap-1.5'>
                 <h4 className='text-zinc-100'>{link.title}</h4>
                 <a 
                   href={link.url}
-                  className='text-zinc-400 text-xs'
+                  className='text-zinc-400 text-xs truncate'
                 >
                   {link.url}
                 </a>
               </div>
 
               <a href={link.url} className="size-5 text-zinc-400 cursor-pointer">
-                <Link2/>
+                <Link2 className='shrink-0'/>
               </a> 
             </div>
           )

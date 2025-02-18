@@ -17,11 +17,10 @@ export function ActivityDetails({activities }: ActivityDetailsProps) {
         activities.map(activity => {
           return (
             <div key={activity.name}>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-baseline">
               <h4 className="text-xl text-zinc-300">Dia {activity.date}</h4>
               <span className="text-xs text-zinc-500">Domingo</span>
             </div>
-  
 
             {activity.name ? (
               <div className="flex w-full items-center gap-3 px-4 py-2 bg-zinc-900 rounded-xl">

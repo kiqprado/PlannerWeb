@@ -34,7 +34,7 @@ export function GuestsLists({
                 type="button"
                 className="size-5 text-zinc-400"
               >
-                <CircleDashed/>
+                <CircleDashed className='shrink-0'/>
               </button>
       
             </div>

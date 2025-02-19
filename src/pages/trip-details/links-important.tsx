@@ -43,7 +43,7 @@ export function LinksImportant({
         })
       ) : (
             <div className='flex items-center justify-between'>
-              <span className=' text-zinc-400'>Você ainda não cadastrou  nenhum link.</span>
+              <span className='text-zinc-400 text-sm'>Você ainda não cadastrou  nenhum link.</span>
             </div>     
       )}
 

@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { InviteGuestsModal } from './invite-guests-modal'
-import { ConfirmTripModal } from './confirm-trip-modal'
+import { ConfirmTripModal, type InvitedEmail } from './confirm-trip-modal'
 
 import { Header } from './components/header'
 import { JourneyDetails } from './components/journey-details'
@@ -21,6 +21,8 @@ export function CreateTripPage() {
   const [ emailsToInvites, setEmailsToInvites ] = useState<string[]>([])
 
   const [ confirmTripModal, setConfirmTripModal ] = useState(false)
+
+  const [ createdTripWithInvitedEmails, setCreatedTripWithInvitedEmails ] = useState<InvitedEmail[]>([])
 
 
   function toggleGuestsInput() {
@@ -64,7 +66,23 @@ export function CreateTripPage() {
     setConfirmTripModal((prev) => !prev)
   }
 
-  function CreateTrip() {
+  function CreateTrip(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    const data = new FormData(e.currentTarget)
+    const name = data.get('name')
+    const email = data.get('email')
+
+    const InvitedEmails = {
+      name: name as string,
+      email: email as string
+    }
+
+    setCreatedTripWithInvitedEmails([
+      ...createdTripWithInvitedEmails,
+      InvitedEmails
+    ])
+
     navigate('/trips/4334')
   }
 

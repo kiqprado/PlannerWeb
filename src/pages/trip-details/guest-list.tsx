@@ -1,4 +1,4 @@
-import { CircleDashed, CircleCheck, UserCog } from 'lucide-react'
+import { CircleDashed, UserCog } from 'lucide-react'
 
 export interface Guest {
   name: string,
@@ -40,9 +40,9 @@ export function GuestsLists({
             </div>
           )
         })
-      ): (
+      ) : (
         <div className='flex items-center justify-between'>
-            <span className=' text-zinc-400'>Você ainda não possui convidados.</span>
+            <span className='text-zinc-400 text-sm'>Você ainda não possui convidados.</span>
         </div>
       )}
 

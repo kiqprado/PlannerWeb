@@ -1,8 +1,17 @@
-import {X, User, Mail} from 'lucide-react'
+import type { FormEvent } from 'react'
+
+import { X } from 'lucide-react'
+
+import { Button } from '../../elements/Button'
+
+export interface InvitedEmail {
+  name: string
+  email: string
+}
 
 interface ConfirmTripModalProps {
   ToggleModalConfirmTrip: () => void
-  CreateTrip: () => void
+  CreateTrip: (e: FormEvent<HTMLFormElement>) => void
 }
 
 export function ConfirmTripModal({
@@ -26,27 +35,27 @@ export function ConfirmTripModal({
 
         <p className='text-zinc-400 mb-5'>Para concluir a criação da viagem para <strong className='text-zinc-100'>Florianópolis, Brasil</strong> nas datas de <strong className='text-zinc-100'>16 a 27 de Agosto de 2024</strong> preencha seus dados abaixo:</p>
 
-        <div className='space-y-2'>
+        <form onSubmit={CreateTrip} className='space-y-2'>
           <input 
             type="text"
-            icon={<User/>}
+            name="name"
             placeholder='Seu nome completo'
             className=' w-full bg-zinc-950 text-zinc-300 placeholder:text-zinc-400 rounded-xl py-2.5 px-4 outline-none'
           />
           <input 
             type="text"
-            icon={<Mail/>}
+            name="email"
             placeholder='Seu e-mail pessoal'
             className=' w-full  bg-zinc-950 text-zinc-300 placeholder:text-zinc-400 rounded-xl py-2.5 px-4 outline-none' 
           />
-          <button
-            type='button'
-            onClick={CreateTrip}
-            className=' w-full bg-lime-300 hover:bg-lime-400 text-center font-medium rounded-xl py-2.5'
+          <Button
+             type='submit'
+             variant='primary'
+             size='full'
           >
             Confirmar criação da viagem
-          </button>
-        </div>
+          </Button>
+        </form>
       </div>
     </div>
   )

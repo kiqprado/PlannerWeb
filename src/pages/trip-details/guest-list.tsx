@@ -1,5 +1,7 @@
 import { CircleDashed, UserCog } from 'lucide-react'
 
+import { Button } from '../../elements/Button'
+
 export interface Guest {
   name: string,
   email: string
@@ -46,14 +48,15 @@ export function GuestsLists({
         </div>
       )}
 
-    <button
+    <Button
       type='button'
       onClick={ToggleModalConfirmGuest}
-      className='flex justify-center items-center gap-2 text-zinc-200 bg-zinc-900 hover:bg-zinc-800 rounded-lg px-5 py-2'
+      variant='secondary'
+      size='full'
     >
       <UserCog/>
       Gerenciar convidados
-    </button>
+    </Button>
   </div>
   )
 }

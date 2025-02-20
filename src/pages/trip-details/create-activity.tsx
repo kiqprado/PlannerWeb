@@ -1,5 +1,7 @@
 import { Plus } from 'lucide-react'
 
+import { Button } from '../../elements/Button'
+
 interface CreateActivityProps {
   ToggleRegisterActivityModal: () => void
 }
@@ -12,14 +14,14 @@ export function CreateActivity({ToggleRegisterActivityModal} : CreateActivityPro
         Atividades
       </h2>
 
-      <button
+      <Button
         type="button"
         onClick={ToggleRegisterActivityModal}
-        className=' flex items-center gap-2 px-5 py-2 font-medium text-lime-950 bg-lime-300 hover:bg-lime-400 rounded-lg'
+        variant='primary'
       >
         <Plus/>
         Cadastrar atividade
-      </button>
+      </Button>
     </div>
   )
 }

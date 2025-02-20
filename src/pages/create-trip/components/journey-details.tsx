@@ -1,5 +1,7 @@
 import { MapPin, Calendar, Settings2, ArrowRight } from 'lucide-react'
 
+import { Button } from '../../../elements/Button'
+
 interface JourneyDetailsProps {
   guestInput: boolean
   toggleGuestsInput: () => void
@@ -35,23 +37,23 @@ export function JourneyDetails({
       <div className='w-0.5 h-10 bg-zinc-800'/>
 
       { guestInput ? (
-        <button
+        <Button
           type='button'
           onClick={toggleGuestsInput}
-          className='flex items-center gap-2 rounded-xl bg-zinc-800 text-zinc-200 font-medium px-5 py-2 hover:bg-zinc-700'
+          variant='secondary'
         >
           Alterar local/data
           <Settings2/>
-        </button>
+        </Button>
       ) : (
-        <button 
+        <Button
           type='button'
           onClick={toggleGuestsInput}
-          className='flex items-center gap-2 rounded-xl bg-lime-300 font-medium px-5 py-2 hover:bg-lime-400'
+          variant='primary'
         >
           Continuar 
           <ArrowRight/>
-        </button>
+        </Button>
       )}
 
     </div>

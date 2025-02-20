@@ -2,6 +2,8 @@ import type { FormEvent } from 'react'
 
 import { X, Tag, Link2 } from 'lucide-react'
 
+import { Button } from '../../elements/Button'
+
 interface AddNewLinkModalProps {
   ToggleAddNewLinkModal: () => void
   HandleAddNewLink: (e: FormEvent<HTMLFormElement>) => void
@@ -49,12 +51,13 @@ export function AddNewLinkModal({
             />
           </div>
 
-          <button
+          <Button
             type="submit"
-            className="w-full px-4 py-2 font-medium rounded-lg bg-lime-300 hover:bg-lime-400 text-lime-950"
+            variant='primary'
+            size='full'
           >
             Salvar link
-          </button>
+          </Button>
           
         </form>
       </div>

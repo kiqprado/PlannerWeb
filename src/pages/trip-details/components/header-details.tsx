@@ -1,5 +1,7 @@
 import { MapPin, Calendar, Settings2 } from 'lucide-react'
 
+import { Button } from '../../../elements/Button'
+
 interface HeaderDetailsInTripProps {
   ChangeTripDetails: () => void
 }
@@ -27,15 +29,15 @@ export function HeaderDetailsInTrip({ChangeTripDetails}: HeaderDetailsInTripProp
       </div>
     
       <div className='w-0.5 h-10 bg-zinc-800'/>
-    
-      <button
+
+      <Button
         type='button'
         onClick={ChangeTripDetails}
-        className='flex items-center gap-2 rounded-xl bg-zinc-800 text-zinc-200 font-medium px-5 py-2 hover:bg-zinc-700'
+        variant='secondary'
       >
         Alterar local/data
         <Settings2/>
-      </button>
+      </Button>
     </div>  
   )
 }

@@ -1,5 +1,7 @@
 import { UserRoundPlus, ArrowRight } from 'lucide-react'
 
+import { Button } from '../../../elements/Button'
+
 interface GuestsInvitesDetailsProps {
   ToggleModalEmailsToInvite: () => void
   emailsToInvites: string[]
@@ -13,11 +15,11 @@ export function GuestsInvitesDetails({
 }: GuestsInvitesDetailsProps) {
   return (
     <div  className='flex items-center gap-5 py-4 px-4 bg-zinc-900 rounded-xl'>
-    
-      <button 
+      <Button
         type='button'
         onClick={ToggleModalEmailsToInvite}
-        className='flex items-center gap-2 flex-1'
+        variant='tertiary'
+        size='full'
       >
         <UserRoundPlus className='size-5 text-zinc-400'/>
         { emailsToInvites.length > 0 ? (
@@ -29,15 +31,15 @@ export function GuestsInvitesDetails({
         ) : (
           <span className='text-zinc-400'> Quem estará na viagem? </span>
         )}
-      </button>
+      </Button>
     
-      <button 
+      <Button
         type='button'
         onClick={ToggleModalConfirmTrip}
-        className='flex items-center gap-2 rounded-xl bg-lime-300 font-medium px-5 py-2 hover:bg-lime-400'
+        variant='primary'
       >
         Confirmar viagem <ArrowRight/>
-      </button>
+      </Button>
     
     </div>
   )

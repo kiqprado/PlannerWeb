@@ -1,6 +1,8 @@
-import { X, User, Mail } from 'lucide-react'
 import type { FormEvent } from 'react'
 
+import { X, User, Mail } from 'lucide-react'
+
+import { Button } from '../../elements/Button'
 interface ConfirmGuestModalProps {
   ToggleModalConfirmGuest: () => void
   HandleAddNewGuest: (e: FormEvent<HTMLFormElement>) => void
@@ -39,12 +41,14 @@ export function ConfirmGuestModal({
                 placeholder='Seu e-mail'
                 className=' w-full  bg-zinc-950 text-zinc-300 placeholder:text-zinc-400 rounded-xl py-2.5 px-4 outline-none' 
               />
-              <button
+
+              <Button
                 type='submit'
-                className=' w-full bg-lime-300 hover:bg-lime-400 text-center font-medium rounded-xl py-2.5'
+                variant='primary'
+                size='full'
               >
                 Confirmar minha presença
-              </button>
+              </Button>
             </form>
           </div>
         </div>

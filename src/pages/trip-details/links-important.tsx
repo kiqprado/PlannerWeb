@@ -1,5 +1,7 @@
 import {Link2, Plus } from 'lucide-react'
 
+import { Button } from '../../elements/Button'
+
 export interface Link {
   title: string
   url: string
@@ -47,14 +49,15 @@ export function LinksImportant({
             </div>     
       )}
 
-      <button
+      <Button
         type='button'
         onClick={ToggleAddNewLinkModal}
-        className='flex justify-center items-center gap-2 text-zinc-200 bg-zinc-900 hover:bg-zinc-800 rounded-lg px-5 py-2'
+        variant='secondary'
+        size='full'
       >
         <Plus/>
         Cadastrar novo link
-      </button>
+      </Button>
     </div>
   )
 }

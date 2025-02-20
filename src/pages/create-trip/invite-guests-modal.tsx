@@ -2,7 +2,8 @@ import type { FormEvent } from 'react'
 
 import { X, AtSign, Plus} from 'lucide-react'
 
-import { Button } from '../../elements/Button'
+import { Button } from '../../elements/button'
+import { ButtonIcon } from '../../elements/button-icon'
 
 interface InviteGuestsModalProps {
   ToggleModalEmailsToInvite: () => void
@@ -25,13 +26,11 @@ export function InviteGuestsModal({
         <div>
           <div className='flex justify-between text-zinc-50'>
             <h3 className='text-lg'>Selecionar convidados</h3>
-            <button
-              type='button'
+            <ButtonIcon
               onClick={ToggleModalEmailsToInvite}
-              className='cursor-pointer'
             >
               <X/>
-            </button>
+            </ButtonIcon>
           </div>
 
           <p className='text-zinc-400 text-sm'>Os convidados irão receber e-mails para confirmar a participação na viagem.</p>
@@ -42,16 +41,16 @@ export function InviteGuestsModal({
             return (
               <li
                 key={email} 
-                className='flex gap-2.5 bg-zinc-800 text-zinc-300 rounded-md py-1 px-1.5'
+                className='flex items-center gap-2.5 bg-zinc-800 text-zinc-300 rounded-md py-1 px-2'
               >
                 {email}
-                <button
+                <ButtonIcon
                   type='button'
                   onClick={() => HandleRemoveEmailFromInvites(email)}
-                  className='cursor-pointer'
+                  size='small'
                 >
                   <X/>
-                </button>
+                </ButtonIcon>
               </li>
             )
           })}

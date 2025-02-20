@@ -1,6 +1,7 @@
 import { CircleDashed, UserCog } from 'lucide-react'
 
-import { Button } from '../../elements/Button'
+import { Button } from '../../elements/button'
+import { ButtonIcon } from '../../elements/button-icon'
 
 export interface Guest {
   name: string,
@@ -32,13 +33,9 @@ export function GuestsLists({
                 </span>
               </div>
 
-              <button
-                type="button"
-                className="size-5 text-zinc-400"
-              >
+              <ButtonIcon>
                 <CircleDashed className='shrink-0'/>
-              </button>
-      
+              </ButtonIcon>
             </div>
           )
         })

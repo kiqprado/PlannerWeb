@@ -1,6 +1,6 @@
 import {Link2, Plus } from 'lucide-react'
 
-import { Button } from '../../elements/Button'
+import { Button } from '../../elements/button'
 
 export interface Link {
   title: string

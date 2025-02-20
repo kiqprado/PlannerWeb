@@ -1,6 +1,6 @@
 import { MapPin, Calendar, Settings2 } from 'lucide-react'
 
-import { Button } from '../../../elements/Button'
+import { Button } from '../../../elements/button'
 
 interface HeaderDetailsInTripProps {
   ChangeTripDetails: () => void

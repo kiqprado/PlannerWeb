@@ -2,7 +2,8 @@ import type { FormEvent } from 'react'
 
 import { X, Tag, Link2 } from 'lucide-react'
 
-import { Button } from '../../elements/Button'
+import { Button } from '../../elements/button'
+import { ButtonIcon } from '../../elements/button-icon'
 
 interface AddNewLinkModalProps {
   ToggleAddNewLinkModal: () => void
@@ -19,12 +20,11 @@ export function AddNewLinkModal({
       <div className='w-[492px] bg-zinc-900 rounded-xl px-5 py-6'>
         <div className='flex justify-between text-zinc-50'>
           <h3 className='text-lg'>Cadastrar link</h3>
-          <button
-            type='button'
+          <ButtonIcon
             onClick={ToggleAddNewLinkModal}
           >
             <X/>
-          </button>
+          </ButtonIcon>
         </div>
 
         <p className='text-zinc-400 text-sm mb-5'>Todos convidados podem visualizar os links importantes.</p>

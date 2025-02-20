@@ -2,7 +2,8 @@ import type { FormEvent } from 'react'
 
 import { X, Tag, Calendar, Clock } from 'lucide-react'
 
-import { Button } from '../../elements/Button'
+import { Button } from '../../elements/button'
+import { ButtonIcon } from '../../elements/button-icon'
 
 interface RegisterActivityModalProps {
   ToggleRegisterActivityModal: () => void
@@ -20,12 +21,11 @@ export function RegisterActivityModal({
 
         <div className='flex justify-between text-zinc-50'>
           <h3 className='text-lg'>Cadastrar atividade</h3>
-          <button
-            type='button'
+          <ButtonIcon
             onClick={ToggleRegisterActivityModal}
           >
             <X/>
-          </button>
+          </ButtonIcon>
         </div>
 
         <p className='text-zinc-400 text-sm mb-5'>Todos convidados podem visualizar as atividades.</p>

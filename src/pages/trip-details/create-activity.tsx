@@ -1,6 +1,6 @@
 import { Plus } from 'lucide-react'
 
-import { Button } from '../../elements/Button'
+import { Button } from '../../elements/button'
 
 interface CreateActivityProps {
   ToggleRegisterActivityModal: () => void

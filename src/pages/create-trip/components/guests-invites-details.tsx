@@ -1,6 +1,6 @@
 import { UserRoundPlus, ArrowRight } from 'lucide-react'
 
-import { Button } from '../../../elements/Button'
+import { Button } from '../../../elements/button'
 
 interface GuestsInvitesDetailsProps {
   ToggleModalEmailsToInvite: () => void

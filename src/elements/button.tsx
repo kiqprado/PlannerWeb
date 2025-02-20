@@ -31,7 +31,6 @@ export function Button({ children, variant, size, ...props} : ButtonProps) {
   return (
     <button
       {...props}
-      type='submit'
       className={ButtonVariants({ variant, size })}
     > 
       {children}

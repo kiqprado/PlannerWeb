@@ -4,6 +4,7 @@ import { X, User, Mail } from 'lucide-react'
 
 import { Button } from '../../elements/button'
 import { ButtonIcon } from '../../elements/button-icon'
+import { Input } from '../../elements/input'
 
 interface ConfirmGuestModalProps {
   ToggleModalConfirmGuest: () => void
@@ -32,15 +33,20 @@ export function ConfirmGuestModal({
             <p className='text-zinc-400 mb-4'>Para confirmar sua presença na viagem, preencha os dados abaixo:</p>
             
             <form action="" onSubmit={HandleAddNewGuest} className='space-y-2'>
-              <input 
+              <Input
                 type="text"
+                name='name'
+                icon={<User/>}
                 placeholder='Seu nome completo'
-                className=' w-full bg-zinc-950 text-zinc-300 placeholder:text-zinc-400 rounded-xl py-2.5 px-4 outline-none'
+                variant='secondary'
               />
-              <input 
-                type="text"
+
+              <Input
+                type="email"
+                name='email'
+                icon={<Mail/>}
                 placeholder='Seu e-mail'
-                className=' w-full  bg-zinc-950 text-zinc-300 placeholder:text-zinc-400 rounded-xl py-2.5 px-4 outline-none' 
+                variant='secondary'
               />
 
               <Button

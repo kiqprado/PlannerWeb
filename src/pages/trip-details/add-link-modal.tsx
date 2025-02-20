@@ -4,6 +4,7 @@ import { X, Tag, Link2 } from 'lucide-react'
 
 import { Button } from '../../elements/button'
 import { ButtonIcon } from '../../elements/button-icon'
+import { Input } from '../../elements/input'
 
 interface AddNewLinkModalProps {
   ToggleAddNewLinkModal: () => void
@@ -30,26 +31,21 @@ export function AddNewLinkModal({
         <p className='text-zinc-400 text-sm mb-5'>Todos convidados podem visualizar os links importantes.</p>
 
         <form action="" onSubmit={HandleAddNewLink} className="space-y-2">
+          <Input
+            type="text"
+            name='title'
+            icon={<Tag/>}
+            placeholder="Título do link"
+            variant='secondary'
+          />
 
-          <div className="flex gap-2 items-center bg-zinc-950 px-4 py-2 rounded-lg">
-            <Tag className="size-5 text-zinc-300"/>
-            <input 
-              type="text"
-              name='title'
-              placeholder="Título do link"
-              className="text-zinc-300 placeholder:text-zinc-400 w-full outline-none"
-            />
-          </div>
-          
-          <div className="flex gap-2 items-center bg-zinc-950 px-4 py-2 rounded-lg">
-            <Link2 className="size-5 text-zinc-300"/>
-            <input 
-              type="url"
-              name='url'
-              placeholder="URL"
-              className="text-zinc-300 placeholder:text-zinc-400 w-full outline-none"
-            />
-          </div>
+          <Input
+            type="url"
+            name='url'
+            icon={<Link2/>}
+            placeholder="URL"
+            variant='secondary'
+          />
 
           <Button
             type="submit"
@@ -57,8 +53,7 @@ export function AddNewLinkModal({
             size='full'
           >
             Salvar link
-          </Button>
-          
+          </Button>      
         </form>
       </div>
     </div>

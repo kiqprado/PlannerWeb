@@ -4,6 +4,7 @@ import { X, Tag, Calendar, Clock } from 'lucide-react'
 
 import { Button } from '../../elements/button'
 import { ButtonIcon } from '../../elements/button-icon'
+import { Input } from '../../elements/input'
 
 interface RegisterActivityModalProps {
   ToggleRegisterActivityModal: () => void
@@ -31,35 +32,28 @@ export function RegisterActivityModal({
         <p className='text-zinc-400 text-sm mb-5'>Todos convidados podem visualizar as atividades.</p>
 
         <form action="" onSubmit={HandleAddNewActivity} className="space-y-2">
+          <Input
+            type="text" 
+            name="activity"
+            icon={<Tag/>}
+            placeholder="Qual a atividade?"
+            variant='secondary'
+          />
 
-          <div className='flex gap-2 items-center bg-zinc-950 px-4 py-2 rounded-lg'>
-            <Tag className='size-5 text-zinc-400'/>
-            <input 
-              type="text" 
-              name="activity"
-              placeholder="Qual a atividade?"
-              className='text-zinc-300 outline-none w-full placeholder:text-zinc-400' 
+          <div className='flex gap-2'>
+            <Input
+              type="date" 
+              name="date"
+              icon={<Calendar/>}
+              variant='secondary'
             />
-          </div>
 
-          <div className="flex gap-2">
-            <div className='flex gap-2 items-center bg-zinc-950 px-4 py-2 rounded-lg flex-1'>
-              <Calendar className='size-5 text-zinc-400'/>
-              <input 
-                type="date"
-                name="date"
-                className='text-zinc-300 outline-none w-full placeholder:text-zinc-400 [appearance:textfield] [&::-webkit-calendar-picker-indicator]:hidden'
-              />
-            </div>
-
-            <div className='flex gap-2 items-center bg-zinc-950 px-4 py-2 rounded-lg'>
-              <Clock className='size-5 text-zinc-400'/>
-              <input 
-                type="time"
-                name="time"
-                className='text-zinc-300 outline-none w-full placeholder:text-zinc-400  [appearance:textfield] [&::-webkit-calendar-picker-indicator]:hidden'
-              />
-            </div>
+            <Input
+              type="time"
+              name="time"
+              icon={<Clock/>}
+              variant='secondary'
+            />
           </div>
           
           <Button

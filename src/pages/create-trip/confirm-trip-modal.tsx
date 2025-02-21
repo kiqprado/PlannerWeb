@@ -22,7 +22,9 @@ export function ConfirmTripModal({
   CreateTrip
 }: ConfirmTripModalProps) {
   return (
-    <Modal>
+    <Modal
+      size='large'
+    >
       <div className='flex justify-between text-zinc-50'>
         <h3 className='text-lg'>Confirmar criação da viagem</h3>
         <ButtonIcon

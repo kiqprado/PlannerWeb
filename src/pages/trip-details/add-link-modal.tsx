@@ -18,7 +18,9 @@ export function AddNewLinkModal({
  } : AddNewLinkModalProps) {
 
   return (
-    <Modal>
+    <Modal
+      size='small'
+    >
       <div className='flex justify-between text-zinc-50'>
         <h3 className='text-lg'>Cadastrar link</h3>
         <ButtonIcon

@@ -22,7 +22,9 @@ export function InviteGuestsModal({
   : InviteGuestsModalProps) {
   
   return(
-    <Modal>
+    <Modal
+      size='small'
+    >
       <div className='space-y-4'>
         <div className='flex justify-between text-zinc-50'>
           <h3 className='text-lg'>Selecionar convidados</h3>
@@ -56,7 +58,7 @@ export function InviteGuestsModal({
         })}
       </ul>
 
-      <div className='w-full h-1 bg-zinc-800'/>
+      <div className='w-full h-0.5 bg-zinc-800'/>
 
       <form 
         onSubmit={HandleAddNewEmailToInvite} 

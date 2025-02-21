@@ -17,7 +17,9 @@ export function ConfirmGuestModal({
   HandleAddNewGuest
 } : ConfirmGuestModalProps) {
   return (
-    <Modal>
+    <Modal
+      size='large'
+    >
       <div className='flex justify-between text-zinc-50'>
         <h3 className='text-lg'>Confirmar participação</h3>
         <ButtonIcon

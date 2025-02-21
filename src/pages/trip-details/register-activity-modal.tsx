@@ -1,6 +1,6 @@
 import type { FormEvent } from 'react'
 
-import { X, Tag, Calendar, Clock } from 'lucide-react'
+import { X, Tag, Calendar } from 'lucide-react'
 
 import { Modal } from '../../elements/modal'
 import { Button } from '../../elements/button'
@@ -39,21 +39,12 @@ export function RegisterActivityModal({
           variant='supporting'
         />
 
-        <div className='flex gap-2'>
-          <Input
-            type="date" 
-            name="date"
-            icon={<Calendar/>}
-            variant='supporting'
-          />
-
-          <Input
-            type="time"
-            name="time"
-            icon={<Clock/>}
-            variant='supporting'
-          />
-        </div>
+        <Input
+          type="datetime-local" 
+          name="occurs_at"
+          icon={<Calendar/>}
+          variant='supporting'
+        />
           
         <Button
           type="submit"

@@ -37,7 +37,7 @@ export function ConfirmGuestModal({
           name='name'
           icon={<User/>}
           placeholder='Seu nome completo'
-          variant='secondary'
+          variant='supporting'
         />
 
         <Input
@@ -45,7 +45,7 @@ export function ConfirmGuestModal({
           name='email'
           icon={<Mail/>}
           placeholder='Seu e-mail'
-          variant='secondary'
+          variant='supporting'
         />
 
         <Button

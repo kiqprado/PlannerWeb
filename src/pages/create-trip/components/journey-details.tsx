@@ -1,6 +1,7 @@
 import { MapPin, Calendar, Settings2, ArrowRight } from 'lucide-react'
 
-import { Button } from '../../../elements/Button'
+import { Button } from '../../../elements/button'
+import { Input } from '../../../elements/input'
 
 interface JourneyDetailsProps {
   guestInput: boolean
@@ -12,29 +13,25 @@ export function JourneyDetails({
   toggleGuestsInput
 } : JourneyDetailsProps ) {
   return (
-    <div  className='flex items-center gap-5 py-4 px-4 bg-zinc-900 rounded-xl'>
+    <div  className='flex items-center py-4 pr-4 rounded-xl bg-zinc-900'>
+      <Input
+        type="text"
+        icon={<MapPin/>}
+        placeholder='Para onde você vai?'
+        disabled={guestInput}
+        variant='auxiliary'
+        size='full'
+      />
+      <Input
+        type="text"
+        icon={<Calendar/>}
+        placeholder='Quando?'
+        disabled={guestInput}
+        variant='additional'
+        size='full'
+      />
 
-      <div className='flex-1 flex items-center gap-2'>
-        <MapPin className='size-5 text-zinc-400'/>
-        <input 
-          type="text" 
-          placeholder='Para onde você vai?'
-          className=' text-zinc-300 flex-1 placeholder:text-zinc-400 outline-none' 
-          disabled={guestInput}
-        />
-      </div>
-
-      <div className='flex items-center gap-2'>
-        <Calendar className='size-5 text-zinc-400'/>
-        <input 
-          type="text" 
-          placeholder='Quando?'
-          className='text-zinc-300 w-30 placeholder:text-zinc-400 outline-none'
-          disabled={guestInput}
-        />
-      </div>
-
-      <div className='w-0.5 h-10 bg-zinc-800'/>
+      <div className='w-0.5 h-10 bg-zinc-800 ml-5 mr-5'/>
 
       { guestInput ? (
         <Button

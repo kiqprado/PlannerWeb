@@ -36,7 +36,7 @@ export function RegisterActivityModal({
           name="activity"
           icon={<Tag/>}
           placeholder="Qual a atividade?"
-          variant='secondary'
+          variant='supporting'
         />
 
         <div className='flex gap-2'>
@@ -44,14 +44,14 @@ export function RegisterActivityModal({
             type="date" 
             name="date"
             icon={<Calendar/>}
-            variant='secondary'
+            variant='supporting'
           />
 
           <Input
             type="time"
             name="time"
             icon={<Clock/>}
-            variant='secondary'
+            variant='supporting'
           />
         </div>
           

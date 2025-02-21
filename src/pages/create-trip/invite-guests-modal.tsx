@@ -23,7 +23,7 @@ export function InviteGuestsModal({
   
   return(
     <Modal>
-      <div>
+      <div className='space-y-4'>
         <div className='flex justify-between text-zinc-50'>
           <h3 className='text-lg'>Selecionar convidados</h3>
           <ButtonIcon
@@ -33,8 +33,8 @@ export function InviteGuestsModal({
           </ButtonIcon>
         </div>
 
-        <p className='text-zinc-400 text-sm'>Os convidados irão receber e-mails para confirmar a participação na viagem.</p>
-      </div>
+        <p className='text-zinc-400 text-sm leading-none'>Os convidados irão receber e-mails para confirmar a participação na viagem.</p>
+
 
       <ul className='flex flex-wrap gap-2'>
         { emailsToInvites.map(email => {
@@ -67,7 +67,7 @@ export function InviteGuestsModal({
           name='email'
           icon={<AtSign/>}
           placeholder='Digite o e-mail do convidado'
-          variant='secondary'
+          variant='supporting'
         />
 
         <Button
@@ -78,6 +78,7 @@ export function InviteGuestsModal({
           <Plus className='size-5'/>
         </Button>
       </form>
+      </div>
     </Modal>      
   )
 }

@@ -36,7 +36,7 @@ export function AddNewLinkModal({
           name='title'
           icon={<Tag/>}
           placeholder="Título do link"
-          variant='secondary'
+          variant='supporting'
         />
 
         <Input
@@ -44,7 +44,7 @@ export function AddNewLinkModal({
           name='url'
           icon={<Link2/>}
           placeholder="URL"
-          variant='secondary'
+          variant='supporting'
         />
 
         <Button

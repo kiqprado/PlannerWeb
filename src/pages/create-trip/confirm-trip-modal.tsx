@@ -40,7 +40,7 @@ export function ConfirmTripModal({
           name='name'
           icon={<User/>}
           placeholder='Seu nome completo'
-          variant='secondary'
+          variant='supporting'
           size='full'
         />
 
@@ -49,7 +49,7 @@ export function ConfirmTripModal({
           name='email'
           icon={<Mail/>}
           placeholder='Seu e-mail pessoal'
-          variant='secondary'
+          variant='supporting'
           size='full'
         />
 

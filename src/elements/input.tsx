@@ -2,16 +2,17 @@ import type { ComponentProps, ReactNode } from "react"
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const DivInputVariants = tv({
-  base: 'w-full flex items-center gap-2 text-zinc-300 rounded-xl',
+  base: 'flex items-center gap-2 pl-4 text-zinc-300 rounded-xl',
   variants: {
     variant: {
-      primary: 'bg-zinc-900',
-      secondary: 'py-2.5 px-4 bg-zinc-950',
-      specialCase: 'w-40 bg-zinc-900'
+      prime: 'bg-zinc-900',
+      auxiliary: 'flex-1 bg-zinc-900',
+      supporting: 'py-2 pr-4 bg-zinc-950',
+      additional: 'w-40 bg-zinc-900'
     },
   },
   defaultVariants: {
-    variant: 'primary'
+    variant: 'prime'
   }
 })
 

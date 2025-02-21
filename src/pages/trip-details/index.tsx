@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import { HeaderDetailsInTrip } from './components/header-details'
 
 import { CreateActivity } from './create-activity'
-import { RegisterActivityModal } from './register-activity'
+import { RegisterActivityModal } from './register-activity-modal'
 import { ActivityDetails, type Activity } from './activity-details'
 
 import { LinksImportant, type Link } from './links-important'
-import { AddNewLinkModal } from './add-new-link'
+import { AddNewLinkModal } from './add-link-modal'
 
 import { GuestsLists, type Guest } from './guest-list'
 import { ConfirmGuestModal } from './confirm-guest-modal'

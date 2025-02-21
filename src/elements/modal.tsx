@@ -5,6 +5,7 @@ const ModalVariants =  tv({
   base: 'bg-zinc-900 rounded-xl px-5 py-6',
   variants: {
     size: {
+      xSmall: 'w-[376px]',
       small: 'w-[492px]',
       medium: 'w-[562px]',
       large: 'w-[626px]'

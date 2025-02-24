@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import type { DateRange } from 'react-day-picker'
+
 import { InviteGuestsModal } from './invite-guests-modal'
 import { ConfirmTripModal, type InvitedEmail } from './confirm-trip-modal'
 
@@ -14,19 +16,28 @@ import '../../index.css'
 export function CreateTripPage() {
   const navigate = useNavigate()
 
+  const [ destinationName, setDestinationName ] = useState('')
+
+  const [ datePickerModal, setDatePickerModal  ] = useState(false)
+  const [ startsAndFinishesDate, setStarAndFinishesDate ] = useState<DateRange | undefined>()
+
   const [ guestInput, setGuestInput ] = useState(false)
 
   const [ emailsToInviteModal, setEmailsToInviteModal ] = useState(false)
-
   const [ emailsToInvites, setEmailsToInvites ] = useState<string[]>([])
 
   const [ confirmTripModal, setConfirmTripModal ] = useState(false)
-
   const [ createdTripWithInvitedEmails, setCreatedTripWithInvitedEmails ] = useState<InvitedEmail[]>([])
+  const [ ownerTripName, setOwnerTripName ] = useState('')
+  const [ ownerTripEmail, setOwnerTripEmail ] = useState('')
 
 
   function toggleGuestsInput() {
     setGuestInput((prev) => !prev)
+  }
+
+  function ToggleDatePickerModal() {
+    setDatePickerModal((prev) => !prev)
   }
 
   function ToggleModalEmailsToInvite() {
@@ -69,19 +80,11 @@ export function CreateTripPage() {
   function CreateTrip(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    const data = new FormData(e.currentTarget)
-    const name = data.get('name')
-    const email = data.get('email')
-
-    const InvitedEmails = {
-      name: name as string,
-      email: email as string
-    }
-
-    setCreatedTripWithInvitedEmails([
-      ...createdTripWithInvitedEmails,
-      InvitedEmails
-    ])
+    console.log(destinationName)
+    console.log(startsAndFinishesDate)
+    console.log(emailsToInvites)
+    console.log(ownerTripName)
+    console.log(ownerTripEmail)
 
     navigate('/trips/4334')
   }
@@ -94,6 +97,11 @@ export function CreateTripPage() {
         <div className='space-y-4'>
         <JourneyDetails
           guestInput={guestInput}
+          datePickerModal={datePickerModal}
+          setDestinationName={setDestinationName}
+          startsAndFinishesDate={startsAndFinishesDate}
+          setStarAndFinishesDate={setStarAndFinishesDate}
+          ToggleDatePickerModal={ToggleDatePickerModal}
           toggleGuestsInput={toggleGuestsInput}
         />
 
@@ -118,6 +126,8 @@ export function CreateTripPage() {
         { confirmTripModal && (
           <ConfirmTripModal
             ToggleModalConfirmTrip={ToggleModalConfirmTrip}
+            setOwnerTripName={setOwnerTripName}
+            setOwnerTripEmail={setOwnerTripEmail}
             CreateTrip={CreateTrip}
           />
         )}

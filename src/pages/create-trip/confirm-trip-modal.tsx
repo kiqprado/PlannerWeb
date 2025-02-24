@@ -14,11 +14,15 @@ export interface InvitedEmail {
 
 interface ConfirmTripModalProps {
   ToggleModalConfirmTrip: () => void
+  setOwnerTripName: (name: string) => void
+  setOwnerTripEmail: (email: string) => void
   CreateTrip: (e: FormEvent<HTMLFormElement>) => void
 }
 
 export function ConfirmTripModal({
   ToggleModalConfirmTrip,
+  setOwnerTripName,
+  setOwnerTripEmail,
   CreateTrip
 }: ConfirmTripModalProps) {
   return (
@@ -42,6 +46,7 @@ export function ConfirmTripModal({
           name='name'
           icon={<User/>}
           placeholder='Seu nome completo'
+          onChange={e => setOwnerTripName(e.target.value)}
           variant='supporting'
           size='full'
         />
@@ -51,6 +56,7 @@ export function ConfirmTripModal({
           name='email'
           icon={<Mail/>}
           placeholder='Seu e-mail pessoal'
+          onChange={e => setOwnerTripEmail(e.target.value)}
           variant='supporting'
           size='full'
         />

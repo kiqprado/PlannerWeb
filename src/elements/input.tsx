@@ -19,13 +19,13 @@ const DivInputVariants = tv({
 const InputVariants = tv({
   base: 'w-full outline-none text-zinc-300 placeholder:text-zinc-400',
   variants: {
-    size: {
+    scale: {
       full: 'flex-1',
       specialCase: 'w-[96px]'
     }
   },
   defaultVariants: {
-    size: 'full'
+    scale: 'full'
   }
 })
 
@@ -35,7 +35,7 @@ VariantProps<typeof InputVariants> {
   icon?: ReactNode
 }
 
-export function Input({icon, variant, size, ...props} : InputProps) {
+export function Input({icon, variant, scale, ...props} : InputProps) {
   return(
     <div
       className={DivInputVariants({ variant })}
@@ -45,7 +45,7 @@ export function Input({icon, variant, size, ...props} : InputProps) {
       )}
       <input 
         {...props}
-        className={InputVariants({ size })}
+        className={InputVariants({ scale })}
       />
     </div>
   )

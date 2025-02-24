@@ -7,11 +7,6 @@ import { Button } from '../../elements/button'
 import { ButtonIcon } from '../../elements/button-icon'
 import { Input } from '../../elements/input'
 
-export interface InvitedEmail {
-  name: string
-  email: string
-}
-
 interface ConfirmTripModalProps {
   ToggleModalConfirmTrip: () => void
   setOwnerTripName: (name: string) => void
@@ -48,7 +43,7 @@ export function ConfirmTripModal({
           placeholder='Seu nome completo'
           onChange={e => setOwnerTripName(e.target.value)}
           variant='supporting'
-          size='full'
+          scale='full'
         />
 
         <Input
@@ -58,7 +53,7 @@ export function ConfirmTripModal({
           placeholder='Seu e-mail pessoal'
           onChange={e => setOwnerTripEmail(e.target.value)}
           variant='supporting'
-          size='full'
+          scale='full'
         />
 
         <Button

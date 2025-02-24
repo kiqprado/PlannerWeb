@@ -1,3 +1,5 @@
+import { api } from '../../../lib/axios'
+
 import { MapPin, Calendar, Settings2 } from 'lucide-react'
 
 import { Button } from '../../../elements/button'
@@ -7,6 +9,7 @@ interface HeaderDetailsInTripProps {
 }
 
 export function HeaderDetailsInTrip({ChangeTripDetails}: HeaderDetailsInTripProps) {
+
   return (
     <div  className='flex items-center gap-5 py-3 px-4 bg-zinc-900 rounded-xl'>
       
@@ -14,6 +17,7 @@ export function HeaderDetailsInTrip({ChangeTripDetails}: HeaderDetailsInTripProp
         <MapPin className='size-5 text-zinc-400'/>
         <input 
           type="text" 
+          disabled
           placeholder='Para onde você vai?'
           className=' text-zinc-300 flex-1 placeholder:text-zinc-400 outline-none' 
         />
@@ -22,7 +26,8 @@ export function HeaderDetailsInTrip({ChangeTripDetails}: HeaderDetailsInTripProp
       <div className='flex items-center gap-2'>
         <Calendar className='size-5 text-zinc-400'/>
         <input 
-          type="text" 
+          type="text"
+          disabled
           placeholder='Quando?'
           className='text-zinc-300 w-30 placeholder:text-zinc-400 outline-none'
         />

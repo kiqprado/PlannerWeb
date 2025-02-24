@@ -1,10 +1,12 @@
 import { useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { api } from '../../lib/axios'
+
 import type { DateRange } from 'react-day-picker'
 
 import { InviteGuestsModal } from './invite-guests-modal'
-import { ConfirmTripModal, type InvitedEmail } from './confirm-trip-modal'
+import { ConfirmTripModal } from './confirm-trip-modal'
 
 import { Header } from './components/header'
 import { JourneyDetails } from './components/journey-details'
@@ -27,7 +29,6 @@ export function CreateTripPage() {
   const [ emailsToInvites, setEmailsToInvites ] = useState<string[]>([])
 
   const [ confirmTripModal, setConfirmTripModal ] = useState(false)
-  const [ createdTripWithInvitedEmails, setCreatedTripWithInvitedEmails ] = useState<InvitedEmail[]>([])
   const [ ownerTripName, setOwnerTripName ] = useState('')
   const [ ownerTripEmail, setOwnerTripEmail ] = useState('')
 
@@ -77,16 +78,35 @@ export function CreateTripPage() {
     setConfirmTripModal((prev) => !prev)
   }
 
-  function CreateTrip(e: FormEvent<HTMLFormElement>) {
+  async function CreateTrip(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    console.log(destinationName)
-    console.log(startsAndFinishesDate)
-    console.log(emailsToInvites)
-    console.log(ownerTripName)
-    console.log(ownerTripEmail)
+    if(!destinationName) {
+      return
+    }
 
-    navigate('/trips/4334')
+    if(!startsAndFinishesDate?.from || !startsAndFinishesDate.to) {
+      return
+    }
+
+    if(!ownerTripName || !ownerTripEmail) {
+      return
+    }
+
+    const response = await api.post('/trips', {
+      destination: destinationName,
+      starts_at: startsAndFinishesDate.from,
+      ends_at: startsAndFinishesDate.to,
+      emails_to_invite: emailsToInvites,
+      owner_name: ownerTripName,
+      owner_email: ownerTripEmail
+    })
+
+    console.log(response)
+
+    const { tripId } = response.data
+
+    navigate(`/trips/${tripId}`)
   }
 
   return (

@@ -45,7 +45,7 @@ export function JourneyDetails({
         onChange={e => setDestinationName(e.target.value)}
         disabled={guestInput}
         variant='auxiliary'
-        size='full'
+        scale='full'
       />
 
       <Button

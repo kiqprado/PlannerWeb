@@ -20,6 +20,7 @@ export function ConfirmTripModal({
   setOwnerTripEmail,
   CreateTrip
 }: ConfirmTripModalProps) {
+  
   return (
     <Modal
       size='large'

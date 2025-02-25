@@ -10,7 +10,7 @@ import { ActivityDetails, type Activity } from './activity-details'
 import { LinksImportant, type Link } from './links-important'
 import { AddNewLinkModal } from './add-link-modal'
 
-import { GuestsLists, type Guest } from './guest-list'
+import { GuestsLists } from './guest-list'
 import { ConfirmGuestModal } from './confirm-guest-modal'
 
 export function TripDetailsPage() {
@@ -23,7 +23,6 @@ export function TripDetailsPage() {
   const [ links, setNewLinks ] = useState<Link[]>([])
 
   const [ confirmGuestModal, setConfirmGuestModal ] = useState(false)
-  const [ guests, setGuests ] = useState<Guest[]>([])
 
   function ChangeTripDetails() {
     navigate("/")
@@ -82,20 +81,6 @@ export function TripDetailsPage() {
 
   function HandleAddNewGuest( e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-
-    const data = new FormData(e.currentTarget)
-    const title = data.get('name')
-    const url = data.get('email')
-
-    const newGuest = {
-      name: title as string,
-      email: url as string
-    }
-
-    setGuests([
-      ...guests,
-      newGuest
-    ])
   }
 
   return(
@@ -148,7 +133,6 @@ export function TripDetailsPage() {
 
             <GuestsLists
               ToggleModalConfirmGuest={ToggleModalConfirmGuest}
-              guests={guests}
             />
           </div>
         </div>

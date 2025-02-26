@@ -102,8 +102,6 @@ export function CreateTripPage() {
       owner_email: ownerTripEmail
     })
 
-    console.log(response)
-
     const { tripId } = response.data
 
     navigate(`/trips/${tripId}`)

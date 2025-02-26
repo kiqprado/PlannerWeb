@@ -7,7 +7,7 @@ import { HeaderDetailsInTrip } from './components/header-details'
 
 import { CreateActivity } from './create-activity'
 import { RegisterActivityModal } from './register-activity-modal'
-import { ActivityDetails, type Activity } from './activity-details'
+import { ActivityDetails } from './activity-details'
 
 import { LinksImportant } from './links-important'
 import { AddNewLinkModal } from './add-link-modal'
@@ -21,7 +21,6 @@ export function TripDetailsPage() {
   const navigate = useNavigate()
 
   const [ registerActivityModal, setRegisterActivityModal ] = useState(false)
-  const [ activities, setActivities ] = useState<Activity[]>([])
 
   const [ addNewLinkModal, setAddNewLinkModal ] = useState(false)
 
@@ -35,25 +34,23 @@ export function TripDetailsPage() {
     setRegisterActivityModal((prev) => !prev)
   }
 
-  function HandleAddNewActivity(e: FormEvent<HTMLFormElement>) {
+  async function HandleAddNewActivity(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
     const data = new FormData(e.currentTarget)
 
     const activity = data.get('activity')
-    const date = data.get('date')
-    const time = data.get('time')
+    const occursAt = data.get('occurs_at')
 
-    const newActivity = {
-      name: activity as string,
-      date: date as string,
-      time: time as string
-    }
-
-    setActivities([
-      ...activities,
-      newActivity
-    ])
+    const response = await api.post(`/trips/${tripId}/activities`, {
+      title: activity,
+      occurs_at: occursAt
+    })
+    
+    const { activityId } = response.data
+    
+    ToggleRegisterActivityModal()
+    return activityId
   }
 
   function ToggleAddNewLinkModal() {
@@ -71,6 +68,8 @@ export function TripDetailsPage() {
       title,
       url
     })
+
+    ToggleAddNewLinkModal()
   }
 
   function ToggleModalConfirmGuest() {
@@ -101,9 +100,8 @@ export function TripDetailsPage() {
               />
               )}
 
-              <ActivityDetails
-                activities={activities}
-              />
+              <ActivityDetails/>
+              
           </div>
 
           <div className='max-w-88 w-full space-y-6'>

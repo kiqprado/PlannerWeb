@@ -8,7 +8,7 @@ import { CircleDashed, CircleCheck, UserCog } from 'lucide-react'
 import { Button } from '../../elements/button'
 import { ButtonIcon } from '../../elements/button-icon'
 
-export interface Participant {
+interface Participant {
   id: string
   name: string | null
   email: string
@@ -17,7 +17,6 @@ export interface Participant {
 
 export interface GuestsListProps {
   ToggleModalConfirmGuest: () => void
-  guests: Participant[]
 }
 export function GuestsLists({
   ToggleModalConfirmGuest,
@@ -31,7 +30,7 @@ export function GuestsLists({
  }, [tripId])
 
  if (!participants) {
-  return <div>Carregando...</div>; // Ou qualquer outro indicador de carregamento
+  return <div>Carregando...</div>
 }
 
   return (

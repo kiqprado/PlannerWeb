@@ -45,7 +45,7 @@ export function LinksImportant({
                   <h4 className='text-zinc-100'>{link.title}</h4>
                   <a
                     href={link.url}
-                    className='text-zinc-400 hover:text-zinc-300 text-xs truncate'
+                    className='w-[282px] text-zinc-400 hover:text-zinc-300 text-xs truncate'
                   >
                   {link.url}
                   </a>

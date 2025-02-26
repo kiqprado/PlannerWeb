@@ -1,5 +1,7 @@
 import { type FormEvent, useState } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+
+import { api } from '../../lib/axios'
 
 import { HeaderDetailsInTrip } from './components/header-details'
 
@@ -7,20 +9,21 @@ import { CreateActivity } from './create-activity'
 import { RegisterActivityModal } from './register-activity-modal'
 import { ActivityDetails, type Activity } from './activity-details'
 
-import { LinksImportant, type Link } from './links-important'
+import { LinksImportant } from './links-important'
 import { AddNewLinkModal } from './add-link-modal'
 
 import { GuestsLists } from './guest-list'
 import { ConfirmGuestModal } from './confirm-guest-modal'
 
 export function TripDetailsPage() {
+  const { tripId } = useParams()
+
   const navigate = useNavigate()
 
   const [ registerActivityModal, setRegisterActivityModal ] = useState(false)
   const [ activities, setActivities ] = useState<Activity[]>([])
 
   const [ addNewLinkModal, setAddNewLinkModal ] = useState(false)
-  const [ links, setNewLinks ] = useState<Link[]>([])
 
   const [ confirmGuestModal, setConfirmGuestModal ] = useState(false)
 
@@ -64,15 +67,10 @@ export function TripDetailsPage() {
     const title = data.get('title')
     const url = data.get('url')
 
-    const newLink = {
-      title: title as string,
-      url: url as string
-    }
-
-    setNewLinks([
-      ...links,
-      newLink
-    ])
+    api.post(`/trips/${tripId}/links`, {
+      title,
+      url
+    })
   }
 
   function ToggleModalConfirmGuest() {
@@ -119,7 +117,6 @@ export function TripDetailsPage() {
 
             <LinksImportant
                ToggleAddNewLinkModal={ToggleAddNewLinkModal}
-               links={links}
             />
 
             <div className='w-full h-0.5 bg-zinc-800'/>
@@ -135,6 +132,7 @@ export function TripDetailsPage() {
               ToggleModalConfirmGuest={ToggleModalConfirmGuest}
             />
           </div>
+          
         </div>
       </div>
     </div>

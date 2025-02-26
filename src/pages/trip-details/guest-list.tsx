@@ -38,13 +38,13 @@ export function GuestsLists({
     <div className='flex flex-col gap-6'>
       <h3 className='text-zinc-50 text-xl'>Convidados</h3>
       { participants.length > 0 ? (
-        participants.map( participant => {
+        participants.map((participant, index) => {
           return (
             <div 
               key={participant.id}
               className='flex items-center justify-between'>
               <div className='flex flex-col gap-1.5'>
-                <h4 className='text-zinc-100'>{participant.name}</h4>
+                <h4 className='text-zinc-100'>{participant.name ?? `Convidado(a) ${index}`}</h4>
                 <span className='text-zinc-400 text-xs'>
                   {participant.email}
                 </span>

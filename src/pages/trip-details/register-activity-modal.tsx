@@ -33,7 +33,7 @@ export function RegisterActivityModal({
       <form action="" onSubmit={HandleAddNewActivity} className="space-y-2">
         <Input
           type="text" 
-          name="activity"
+          name="title"
           icon={<Tag/>}
           placeholder="Qual a atividade?"
           variant='supporting'

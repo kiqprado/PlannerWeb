@@ -39,12 +39,12 @@ export function TripDetailsPage() {
 
     const data = new FormData(e.currentTarget)
 
-    const activity = data.get('activity')
-    const occursAt = data.get('occurs_at')
+    const title = data.get('title')
+    const occurs_at = data.get('occurs_at')
 
     const response = await api.post(`/trips/${tripId}/activities`, {
-      title: activity,
-      occurs_at: occursAt
+      title,
+      occurs_at
     })
     
     const { activityId } = response.data
